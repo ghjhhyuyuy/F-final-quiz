@@ -8,7 +8,7 @@ class StudentList extends Component {
     this.state = {
       students: [],
       type: 'button',
-      studentName: '',
+      studentName: '+添加学员',
     };
   }
 
@@ -23,7 +23,10 @@ class StudentList extends Component {
   }
 
   addStudnet = () => {
-    this.setState({ type: 'text' });
+    this.setState({
+      type: 'text',
+      studentName: '',
+    });
   };
 
   keyDown = (event) => {
@@ -33,13 +36,26 @@ class StudentList extends Component {
   };
 
   sentRequest = () => {
-    fetch(`http://localhost:8080/addStudent/${this.state.studentName}`)
+    fetch(`http://localhost:8080/addStudent/${this.state.studentName}`, {
+      method: 'POST',
+      mode: 'cors',
+    })
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        this.setState({ students: data });
+        this.setState({
+          students: data,
+          type: 'button',
+          studentName: '+添加学员',
+        });
       });
+  };
+
+  changeName = (event) => {
+    this.setState({
+      studentName: event.target.value,
+    });
   };
 
   render() {
@@ -51,9 +67,10 @@ class StudentList extends Component {
         <input
           id="spanButton"
           type={this.state.type}
-          value="+添加学员"
+          value={this.state.studentName}
           onClick={this.addStudnet}
           onKeyDown={this.keyDown}
+          onChange={this.changeName}
         />
       </div>
     );
