@@ -1,0 +1,13 @@
+.team {
+  margin-top: 10px;
+  border: 1px solid #929aab;
+}
+.teamName {
+  text-align: center;
+  height: 20px;
+  background-color: #929aab;
+  color: white;
+}
+.members {
+  height: 50px;
+}
