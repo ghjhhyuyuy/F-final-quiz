@@ -7,14 +7,14 @@ class Team extends Component {
     super(props);
     this.state = {
       disabled: true,
-      teamName: this.props.name,
+      writeName: this.props.name,
     };
   }
 
   addName = () => {
     this.setState({
       disabled: false,
-      teamName: '',
+      writeName: '',
     });
   };
 
@@ -28,14 +28,22 @@ class Team extends Component {
     fetch(`http://localhost:8080/updateTeamName/${this.props.id}`, {
       method: 'POST',
       mode: 'cors',
-      body: this.state.teamName,
+      body: this.state.writeName,
+    }).then((res) => {
+      if (res.ok) {
+        console.log('ok');
+      } else {
+        this.setState((prev) => ({
+          writeName: prev.writeName,
+        }));
+      }
     });
   };
 
   changeName = (event) => {
     if (!this.state.disabled) {
       this.setState({
-        teamName: event.target.value,
+        writeName: event.target.value,
       });
     }
   };
@@ -53,7 +61,7 @@ class Team extends Component {
         <input
           className="teamName"
           type="text"
-          value={this.state.teamName}
+          value={this.state.writeName}
           onClick={this.addName}
           onKeyDown={this.keyDown}
           onChange={this.changeName}
