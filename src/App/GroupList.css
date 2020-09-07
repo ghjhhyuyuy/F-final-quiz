@@ -1,0 +1,18 @@
+#header {
+  height: 30px;
+  justify-content: space-between;
+}
+#header span {
+  line-height: 30px;
+  font-weight: 900;
+  font-size: 16px;
+}
+#header button {
+  width: 100px;
+  line-height: 30px;
+  float: right;
+  background-color: #ea5455;
+  color: white;
+  border: none;
+  font-size: 3px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Team from './Team';
+import './GroupList.css';
 
 class GroupList extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class GroupList extends Component {
     }
     return (
       <div>
-        <div>
+        <div id="header">
           <span>分组列表</span>
           <button type="button">分组学员</button>
         </div>
