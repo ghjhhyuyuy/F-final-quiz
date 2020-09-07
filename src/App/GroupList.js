@@ -29,7 +29,14 @@ class GroupList extends Component {
       groups = (
         <div>
           {this.state.groups.map((group) => {
-            return <Team name={group.groupName} members={group.members} key={group.groupName} />;
+            return (
+              <Team
+                name={group.groupName}
+                members={group.members}
+                id={group.groupId}
+                key={group.groupName}
+              />
+            );
           })}
         </div>
       );
