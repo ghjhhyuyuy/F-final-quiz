@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import './Member.css';
 
 class Member extends Component {
   render() {
-    return <span>menber</span>;
+    return (
+      <span className="member">
+        {this.props.id}.{this.props.name}
+      </span>
+    );
   }
 }
 
