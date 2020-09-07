@@ -52,6 +52,13 @@ class StudentList extends Component {
       });
   };
 
+  restyle = () => {
+    this.setState({
+      type: 'button',
+      studentName: '+添加学员',
+    });
+  };
+
   changeName = (event) => {
     this.setState({
       studentName: event.target.value,
@@ -71,6 +78,7 @@ class StudentList extends Component {
           onClick={this.addStudnet}
           onKeyDown={this.keyDown}
           onChange={this.changeName}
+          onBlur={this.restyle}
         />
       </div>
     );
