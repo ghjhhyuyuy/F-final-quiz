@@ -5,61 +5,18 @@ class StudentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      students: [
-        {
-          id: 1,
-          name: '王作文',
-        },
-        {
-          id: 2,
-          name: '王林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-        {
-          id: 2,
-          name: '王江林',
-        },
-      ],
+      students: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/getStudents')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({ students: data });
+      });
   }
 
   render() {
