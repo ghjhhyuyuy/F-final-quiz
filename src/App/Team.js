@@ -6,8 +6,8 @@ class Team extends Component {
   render() {
     const members = (
       <div className="members">
-        {this.props.members.map((menber) => {
-          return <Member name={menber.name} id={menber.id} key={menber.id} />;
+        {this.props.members.map((member) => {
+          return <Member name={member.name} id={member.id} key={member.id} />;
         })}
       </div>
     );
