@@ -68,6 +68,7 @@ class StudentList extends Component {
         {this.state.students.map((student) => {
           return <Member name={student.name} id={student.id} key={student.id} />;
         })}
+        <span className="member">+添加学员</span>
       </div>
     );
   }
