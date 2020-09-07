@@ -1,9 +1,14 @@
 .member {
+  text-align: center;
   margin-left: 10px;
   margin-right: 10px;
   background-color: #eeeeee;
+  display: inline-block;
+  width: 50px;
   padding: 8px;
   font-size: 5px;
   font-weight: bold;
-  line-height: 50px;
+  margin-top: 10px;
+  height: 10px;
+  line-height: 10px;
 }
