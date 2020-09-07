@@ -8,14 +8,7 @@
   height: 20px;
   background-color: #929aab;
   color: white;
-}
-.teamName:focus {
-  width: 100%;
-  text-align: center;
-  height: 20px;
-  background-color: #929aab;
-  color: white;
-  border: none;
+  outline: none;
 }
 .members {
   height: 50px;
