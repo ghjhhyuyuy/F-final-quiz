@@ -7,6 +7,8 @@ class StudentList extends Component {
     super(props);
     this.state = {
       students: [],
+      type: 'button',
+      studentName: '',
     };
   }
 
@@ -20,7 +22,25 @@ class StudentList extends Component {
       });
   }
 
-  addStudnet = () => {};
+  addStudnet = () => {
+    this.setState({ type: 'text' });
+  };
+
+  keyDown = (event) => {
+    if (event.nativeEvent.keyCode === 13) {
+      this.sentRequest();
+    }
+  };
+
+  sentRequest = () => {
+    fetch(`http://localhost:8080/addStudent/${this.state.studentName}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({ students: data });
+      });
+  };
 
   render() {
     return (
@@ -28,9 +48,13 @@ class StudentList extends Component {
         {this.state.students.map((student) => {
           return <Member name={student.name} id={student.id} key={student.id} />;
         })}
-        <button id="spanButton" type="button" onClick={this.addStudnet}>
-          +添加学员
-        </button>
+        <input
+          id="spanButton"
+          type={this.state.type}
+          value="+添加学员"
+          onClick={this.addStudnet}
+          onKeyDown={this.keyDown}
+        />
       </div>
     );
   }
