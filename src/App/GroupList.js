@@ -22,21 +22,71 @@ class GroupList extends Component {
         },
         {
           name: 'Team2',
+          members: [
+            {
+              id: 1,
+              name: '王作文',
+            },
+            {
+              id: 2,
+              name: '王江林',
+            },
+          ],
         },
         {
           name: 'Team3',
+          members: [
+            {
+              id: 1,
+              name: '王作文',
+            },
+            {
+              id: 2,
+              name: '王江林',
+            },
+          ],
         },
         {
           name: 'Team4',
+          members: [
+            {
+              id: 1,
+              name: '王作文',
+            },
+            {
+              id: 2,
+              name: '王江林',
+            },
+          ],
         },
         {
           name: 'Team5',
+          members: [
+            {
+              id: 1,
+              name: '王作文',
+            },
+            {
+              id: 2,
+              name: '王江林',
+            },
+          ],
         },
         {
           name: 'Team6',
+          members: [
+            {
+              id: 1,
+              name: '王作文',
+            },
+            {
+              id: 2,
+              name: '王江林',
+            },
+          ],
         },
       ],
-      showGroup: false,
+      showGroup: true,
     };
   }
 
