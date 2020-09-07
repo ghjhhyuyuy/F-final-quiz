@@ -1,0 +1,16 @@
+#spanButton {
+  width: 66px;
+  padding: 8px;
+  font-size: 5px;
+  margin-top: 10px;
+  height: 25px;
+  line-height: 10px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: none;
+  background-color: #eeeeee;
+}
+#spanButton:hover {
+  cursor: pointer;
+}

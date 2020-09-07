@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Member from './Member';
+import './Students.css';
 
 class StudentList extends Component {
   constructor(props) {
@@ -19,13 +20,17 @@ class StudentList extends Component {
       });
   }
 
+  addStudnet = () => {};
+
   render() {
     return (
       <div>
         {this.state.students.map((student) => {
           return <Member name={student.name} id={student.id} key={student.id} />;
         })}
-        <span className="member">+添加学员</span>
+        <button id="spanButton" type="button" onClick={this.addStudnet}>
+          +添加学员
+        </button>
       </div>
     );
   }
