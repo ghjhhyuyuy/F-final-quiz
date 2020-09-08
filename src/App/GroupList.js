@@ -23,6 +23,10 @@ class GroupList extends Component {
       });
   };
 
+  setName = (id, name) => {
+    this.state.groups[id].groupName = name;
+  };
+
   render() {
     let groups = null;
     if (this.state.showGroup) {
@@ -33,6 +37,7 @@ class GroupList extends Component {
               <Team
                 name={group.groupName}
                 members={group.members}
+                setName={this.setName}
                 id={group.groupId}
                 key={group.groupName}
               />

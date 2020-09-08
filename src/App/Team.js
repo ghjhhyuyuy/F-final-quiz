@@ -31,11 +31,11 @@ class Team extends Component {
       body: this.state.writeName,
     }).then((res) => {
       if (res.ok) {
-        console.log('ok');
+        this.props.setName(this.props.id, this.state.writeName);
       } else {
-        this.setState((prev) => ({
-          writeName: prev.writeName,
-        }));
+        this.setState({
+          writeName: this.props.name,
+        });
       }
     });
   };
