@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Team from './Team';
+import Team from '../Team/Team';
 import './GroupList.css';
+import request from '../request';
 
 class GroupList extends Component {
   constructor(props) {
@@ -12,15 +13,11 @@ class GroupList extends Component {
   }
 
   getGroupData = () => {
-    fetch('http://localhost:8080/getGroups')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        this.setState({
-          groups: data,
-        });
+    request('http://localhost:8080/getGroups').then((data) => {
+      this.setState({
+        groups: data,
       });
+    });
   };
 
   setName = (id, name) => {

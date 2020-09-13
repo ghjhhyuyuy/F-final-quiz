@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Member from './Member';
+import Member from '../Member/Member';
 import './Students.css';
 
-class StudentList extends Component {
+class Students extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,7 +67,8 @@ class StudentList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="studentList">
+        <span className="studentListName">学员列表</span>
         {this.state.students.map((student) => {
           return <Member name={student.name} id={student.id} key={student.id} />;
         })}
@@ -85,4 +86,4 @@ class StudentList extends Component {
   }
 }
 
-export default StudentList;
+export default Students;

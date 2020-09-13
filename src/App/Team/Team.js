@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Member from './Member';
+import Member from '../Member/Member';
 import './Team.css';
 
 class Team extends Component {
