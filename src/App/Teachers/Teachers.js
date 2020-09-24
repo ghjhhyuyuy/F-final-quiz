@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Member from '../Member/Member';
-import './Students.css';
+import './Teachers.css';
 
 class Students extends Component {
   constructor(props) {
@@ -8,12 +8,12 @@ class Students extends Component {
     this.state = {
       students: [],
       type: 'button',
-      studentName: '+添加学员',
+      studentName: '+添加讲师',
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/trainees?grouped=false')
+    fetch('http://localhost:8080/trainers?grouped=false')
       .then((res) => {
         return res.json();
       })
@@ -47,7 +47,7 @@ class Students extends Component {
         this.setState({
           students: data,
           type: 'button',
-          studentName: '+添加学员',
+          studentName: '+添加讲师',
         });
       });
   };
@@ -55,7 +55,7 @@ class Students extends Component {
   restyle = () => {
     this.setState({
       type: 'button',
-      studentName: '+添加学员',
+      studentName: '+添加讲师',
     });
   };
 
@@ -68,7 +68,7 @@ class Students extends Component {
   render() {
     return (
       <div className="studentList">
-        <span className="studentListName">学员列表</span>
+        <span className="studentListName">讲师列表</span>
         {this.state.students.map((student) => {
           return <Member name={student.name} id={student.id} key={student.id} />;
         })}

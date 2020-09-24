@@ -12,6 +12,14 @@ class GroupList extends Component {
     };
   }
 
+  componentDidMount() {
+    request('http://localhost:8080/groups').then((data) => {
+      this.setState({
+        groups: data,
+      });
+    });
+  }
+
   getGroupData = () => {
     request('http://localhost:8080/getGroups').then((data) => {
       this.setState({
@@ -32,10 +40,11 @@ class GroupList extends Component {
           {this.state.groups.map((group) => {
             return (
               <Team
-                name={group.groupName}
-                members={group.members}
+                name={group.name}
+                trainees={group.trainees}
+                trainers={group.trainers}
                 setName={this.setName}
-                id={group.groupId}
+                id={group.id}
                 key={group.groupName}
               />
             );

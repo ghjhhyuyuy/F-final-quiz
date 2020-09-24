@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Member from '../Member/Member';
+import Teacher from '../Teacher/Teacher';
 import './Team.css';
 
 class Team extends Component {
@@ -25,8 +26,8 @@ class Team extends Component {
   };
 
   sentRequest = () => {
-    fetch(`http://localhost:8080/updateTeamName/${this.props.id}`, {
-      method: 'POST',
+    fetch(`http://localhost:8080/groups/${this.props.id}`, {
+      method: 'PATCH',
       mode: 'cors',
       body: this.state.writeName,
     }).then((res) => {
@@ -50,12 +51,13 @@ class Team extends Component {
 
   render() {
     const members = (
-      <div className="members">
-        {this.props.members.map((member) => {
+      <div className="members" style={{ position: 'relative' }}>
+        {this.props.trainees.map((member) => {
           return <Member name={member.name} id={member.id} key={member.id} />;
         })}
       </div>
     );
+
     return (
       <div className="team">
         <input
@@ -66,6 +68,9 @@ class Team extends Component {
           onKeyDown={this.keyDown}
           onChange={this.changeName}
         />
+        {this.props.trainers.map((member) => {
+          return <Teacher name={member.name} id={member.id} key={member.id} />;
+        })}
         {members}
       </div>
     );
