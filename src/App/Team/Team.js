@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { message, Space } from 'antd';
 import Member from '../Member/Member';
 import Teacher from '../Teacher/Teacher';
+
 import './Team.css';
 
 class Team extends Component {
@@ -37,6 +39,10 @@ class Team extends Component {
         this.setState({
           writeName: this.props.name,
         });
+        const error = () => {
+          message.error('This is an error message');
+        };
+        <Space>{error}</Space>;
       }
     });
   };

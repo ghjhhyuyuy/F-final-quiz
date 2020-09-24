@@ -36,9 +36,10 @@ class Students extends Component {
   };
 
   sentRequest = () => {
-    fetch(`http://localhost:8080/addStudent/${this.state.studentName}`, {
+    fetch(`http://localhost:8080/trainerss`, {
       method: 'POST',
       mode: 'cors',
+      body: JSON.stringify({ name: this.state.studentName }),
     })
       .then((res) => {
         return res.json();
