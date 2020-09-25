@@ -5,6 +5,7 @@ import './Teachers.css';
 class Students extends Component {
   constructor(props) {
     super(props);
+    // TODO Feedback: 建议添加讲师定义为单独的组件，而不是通过state去控制
     this.state = {
       students: [],
       type: 'button',
@@ -13,7 +14,7 @@ class Students extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/trainers?grouped=false')
+    fetch('http://localhost:3000/trainers?grouped=false')
       .then((res) => {
         return res.json();
       })

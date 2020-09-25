@@ -21,6 +21,7 @@ class GroupList extends Component {
   }
 
   getGroupData = () => {
+    // TODO Feedback: 提供的API应该是auto-grouping
     request('http://localhost:8080/getGroups').then((data) => {
       this.setState({
         groups: data,
@@ -29,11 +30,13 @@ class GroupList extends Component {
   };
 
   setName = (id, name) => {
+    // TODO Feedback: 应该向后台发请求修改名字，而不是前端去修改数据
     this.state.groups[id].groupName = name;
   };
 
   render() {
     let groups = null;
+    // TODO Feedback: 不建议这样写，可以直接用三目表达式
     if (this.state.showGroup) {
       groups = (
         <div>
@@ -54,6 +57,8 @@ class GroupList extends Component {
     }
     return (
       <div>
+        {/* // TODO Feedback: 没有使用语义标签 */}
+        {/* // TODO Feedback: 嵌套层次太多 */}
         <div id="header">
           <span>分组列表</span>
           <button type="button" onClick={this.getGroupData}>

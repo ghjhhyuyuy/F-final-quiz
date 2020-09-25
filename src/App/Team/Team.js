@@ -8,6 +8,7 @@ import './Team.css';
 class Team extends Component {
   constructor(props) {
     super(props);
+    // TODO Feedback: writeName命名太奇怪了，而且不需要存储名字
     this.state = {
       disabled: true,
       writeName: this.props.name,
@@ -22,12 +23,15 @@ class Team extends Component {
   };
 
   keyDown = (event) => {
+    // TODO Feedback: 不是nvtiveEvent
     if (event.nativeEvent.keyCode === 13) {
       this.sentRequest();
     }
   };
 
   sentRequest = () => {
+    // TODO Feedback: body应该是json对象
+    // TODO Feedback: 请求和业务逻辑耦合在一起，建议把获取数据的逻辑提取到单独的方法中
     fetch(`http://localhost:8080/groups/${this.props.id}`, {
       method: 'PATCH',
       mode: 'cors',
@@ -42,6 +46,7 @@ class Team extends Component {
         const error = () => {
           message.error('This is an error message');
         };
+        // TODO Feedback: 写法有问题
         <Space>{error}</Space>;
       }
     });
